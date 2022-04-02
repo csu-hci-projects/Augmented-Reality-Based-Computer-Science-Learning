@@ -7,3 +7,6 @@ The ARCore licensing agreement for use with Android SDK can be found [here](http
 
 ### Checkpoint 1
 
+Video for checkpoint 1 can be found [here](https://www.youtube.com/watch?v=QqXQlpLm1cI)
+
+PDF report for checkpoint 1 can be found [here](./reports/Checkpoint-1.pdf)
