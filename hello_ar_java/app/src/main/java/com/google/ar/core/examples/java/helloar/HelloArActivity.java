@@ -55,6 +55,7 @@ import com.google.ar.core.examples.java.common.helpers.DepthSettings;
 import com.google.ar.core.examples.java.common.helpers.DisplayRotationHelper;
 import com.google.ar.core.examples.java.common.helpers.FullScreenHelper;
 import com.google.ar.core.examples.java.common.helpers.InstantPlacementSettings;
+import com.google.ar.core.examples.java.common.helpers.ObjectToPlaceSettings;
 import com.google.ar.core.examples.java.common.helpers.SnackbarHelper;
 import com.google.ar.core.examples.java.common.helpers.TapHelper;
 import com.google.ar.core.examples.java.common.helpers.TrackingStateHelper;
@@ -136,6 +137,10 @@ public class HelloArActivity extends AppCompatActivity implements SampleRender.R
 
   private final InstantPlacementSettings instantPlacementSettings = new InstantPlacementSettings();
   private boolean[] instantPlacementSettingsMenuDialogCheckboxes = new boolean[1];
+
+  private final ObjectToPlaceSettings objectToPlaceSettings = new ObjectToPlaceSettings();
+  private String objectToPlaceString = "coffee_cup_obj.obj";
+  private String textureString = "Base_color.png";
   // Assumed distance from the device camera to the surface on which user will try to place objects.
   // This value affects the apparent scale of objects while the tracking method of the
   // Instant Placement point is SCREENSPACE_WITH_APPROXIMATE_DISTANCE.
@@ -194,6 +199,7 @@ public class HelloArActivity extends AppCompatActivity implements SampleRender.R
 
     depthSettings.onCreate(this);
     instantPlacementSettings.onCreate(this);
+    objectToPlaceSettings.onCreate(this);
     ImageButton settingsButton = findViewById(R.id.settings_button);
     settingsButton.setOnClickListener(
         new View.OnClickListener() {
@@ -214,6 +220,10 @@ public class HelloArActivity extends AppCompatActivity implements SampleRender.R
       return true;
     } else if (item.getItemId() == R.id.instant_placement_settings) {
       launchInstantPlacementSettingsMenuDialog();
+      return true;
+    } else if (item.getItemId() == R.id.object_to_place) {
+      objectToPlaceString = "cottage_obj.obj";
+      textureString = "cottage_normal.png";
       return true;
     }
     return false;
@@ -400,23 +410,23 @@ public class HelloArActivity extends AppCompatActivity implements SampleRender.R
       virtualObjectAlbedoTexture =
           Texture.createFromAsset(
               render,
-              "models/pawn_albedo.png",
+              "models/" + textureString,
               Texture.WrapMode.CLAMP_TO_EDGE,
               Texture.ColorFormat.SRGB);
       virtualObjectAlbedoInstantPlacementTexture =
           Texture.createFromAsset(
               render,
-              "models/pawn_albedo_instant_placement.png",
+                  "models/" + textureString,
               Texture.WrapMode.CLAMP_TO_EDGE,
               Texture.ColorFormat.SRGB);
       Texture virtualObjectPbrTexture =
           Texture.createFromAsset(
               render,
-              "models/pawn_roughness_metallic_ao.png",
+                  "models/" + textureString,
               Texture.WrapMode.CLAMP_TO_EDGE,
               Texture.ColorFormat.LINEAR);
 
-      virtualObjectMesh = Mesh.createFromAsset(render, "models/pawn.obj");
+      virtualObjectMesh = Mesh.createFromAsset(render, "models/" + objectToPlaceString);
       virtualObjectShader =
           Shader.createFromAssets(
                   render,
