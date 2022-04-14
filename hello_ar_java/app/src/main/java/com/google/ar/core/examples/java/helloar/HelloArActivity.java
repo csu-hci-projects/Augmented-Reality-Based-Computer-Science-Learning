@@ -139,8 +139,8 @@ public class HelloArActivity extends AppCompatActivity implements SampleRender.R
   private boolean[] instantPlacementSettingsMenuDialogCheckboxes = new boolean[1];
 
   private final ObjectToPlaceSettings objectToPlaceSettings = new ObjectToPlaceSettings();
-  private String objectToPlaceString = "coffee_cup_obj.obj";
-  private String textureString = "Base_color.png";
+  private String objectToPlaceString = "cottage_obj.obj";
+  private String textureString = "cottage_normal.png";
   // Assumed distance from the device camera to the surface on which user will try to place objects.
   // This value affects the apparent scale of objects while the tracking method of the
   // Instant Placement point is SCREENSPACE_WITH_APPROXIMATE_DISTANCE.
@@ -219,11 +219,14 @@ public class HelloArActivity extends AppCompatActivity implements SampleRender.R
       launchDepthSettingsMenuDialog();
       return true;
     } else if (item.getItemId() == R.id.instant_placement_settings) {
+
       launchInstantPlacementSettingsMenuDialog();
       return true;
     } else if (item.getItemId() == R.id.object_to_place) {
+      System.out.println("got here");
       objectToPlaceString = "cottage_obj.obj";
       textureString = "cottage_normal.png";
+      System.out.printf("in menu: object string: %s texture string: %s%n",objectToPlaceString,textureString);
       return true;
     }
     return false;
@@ -351,6 +354,7 @@ public class HelloArActivity extends AppCompatActivity implements SampleRender.R
   public void onSurfaceCreated(SampleRender render) {
     // Prepare the rendering objects. This involves reading shaders and 3D model files, so may throw
     // an IOException.
+    System.out.printf("in place, objectToPlaceString: %s", objectToPlaceString);
     try {
       planeRenderer = new PlaneRenderer(render);
       backgroundRenderer = new BackgroundRenderer(render);
@@ -425,7 +429,6 @@ public class HelloArActivity extends AppCompatActivity implements SampleRender.R
                   "models/" + textureString,
               Texture.WrapMode.CLAMP_TO_EDGE,
               Texture.ColorFormat.LINEAR);
-
       virtualObjectMesh = Mesh.createFromAsset(render, "models/" + objectToPlaceString);
       virtualObjectShader =
           Shader.createFromAssets(
@@ -460,7 +463,6 @@ public class HelloArActivity extends AppCompatActivity implements SampleRender.R
     if (session == null) {
       return;
     }
-
     // Texture names should only be set once on a GL thread unless they change. This is done during
     // onDrawFrame rather than onSurfaceCreated since the session is not guaranteed to have been
     // initialized during the execution of onSurfaceCreated.
