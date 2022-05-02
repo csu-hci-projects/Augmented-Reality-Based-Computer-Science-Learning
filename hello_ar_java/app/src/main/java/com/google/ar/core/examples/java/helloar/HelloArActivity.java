@@ -139,8 +139,8 @@ public class HelloArActivity extends AppCompatActivity implements SampleRender.R
   private boolean[] instantPlacementSettingsMenuDialogCheckboxes = new boolean[1];
 
   private final ObjectToPlaceSettings objectToPlaceSettings = new ObjectToPlaceSettings();
-  private String objectToPlaceString = "cottage_obj.obj";
-  private String textureString = "cottage_normal.png";
+  private String objectToPlaceString = "LibertStatue.obj";
+  private String textureString = "Liberty-GreenBronze-1.bmp";
   // Assumed distance from the device camera to the surface on which user will try to place objects.
   // This value affects the apparent scale of objects while the tracking method of the
   // Instant Placement point is SCREENSPACE_WITH_APPROXIMATE_DISTANCE.
