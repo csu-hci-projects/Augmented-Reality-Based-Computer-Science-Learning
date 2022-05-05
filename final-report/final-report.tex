@@ -1,0 +1,363 @@
+% $Id: template.tex 11 2007-04-03 22:25:53Z jpeltier $
+
+\documentclass{vgtc}                          % final (conference style)
+%\documentclass[review]{vgtc}                 % review
+%\documentclass[widereview]{vgtc}             % wide-spaced review
+%\documentclass[preprint]{vgtc}               % preprint
+%\documentclass[electronic]{vgtc}             % electronic version
+
+%% Uncomment one of the lines above depending on where your paper is
+%% in the conference process. ``review'' and ``widereview'' are for review
+%% submission, ``preprint'' is for pre-publication, and the final version
+%% doesn't use a specific qualifier. Further, ``electronic'' includes
+%% hyperreferences for more convenient online viewing.
+
+%% Please use one of the ``review'' options in combination with the
+%% assigned online id (see below) ONLY if your paper uses a double blind
+%% review process. Some conferences, like IEEE Vis and InfoVis, have NOT
+%% in the past.
+
+%% Figures should be in CMYK or Grey scale format, otherwise, colour 
+%% shifting may occur during the printing process.
+
+%% These few lines make a distinction between latex and pdflatex calls and they
+%% bring in essential packages for graphics and font handling.
+%% Note that due to the \DeclareGraphicsExtensions{} call it is no longer necessary
+%% to provide the the path and extension of a graphics file:
+%% \includegraphics{diamondrule} is completely sufficient.
+%%
+\ifpdf%                                % if we use pdflatex
+  \pdfoutput=1\relax                   % create PDFs from pdfLaTeX
+  \pdfcompresslevel=9                  % PDF Compression
+  \pdfoptionpdfminorversion=7          % create PDF 1.7
+  \ExecuteOptions{pdftex}
+  \usepackage{graphicx}                % allow us to embed graphics files
+  \DeclareGraphicsExtensions{.pdf,.png,.jpg,.jpeg} % for pdflatex we expect .pdf, .png, or .jpg files
+\else%                                 % else we use pure latex
+  \ExecuteOptions{dvips}
+  \usepackage{graphicx}                % allow us to embed graphics files
+  \DeclareGraphicsExtensions{.eps}     % for pure latex we expect eps files
+\fi%
+
+%% it is recomended to use ``\autoref{sec:bla}'' instead of ``Fig.~\ref{sec:bla}''
+\graphicspath{{figures/}{pictures/}{images/}{./}} % where to search for the images
+
+\usepackage{microtype}                 % use micro-typography (slightly more compact, better to read)
+\PassOptionsToPackage{warn}{textcomp}  % to address font issues with \textrightarrow
+\usepackage{textcomp}                  % use better special symbols
+\usepackage{mathptmx}                  % use matching math font
+\usepackage{times}                     % we use Times as the main font
+\renewcommand*\ttdefault{txtt}         % a nicer typewriter font
+\usepackage{cite}                      % needed to automatically sort the references
+\usepackage{tabu}                      % only used for the table example
+\usepackage{booktabs}                  % only used for the table example
+%% We encourage the use of mathptmx for consistent usage of times font
+%% throughout the proceedings. However, if you encounter conflicts
+%% with other math-related packages, you may want to disable it.
+\usepackage[normalem]{ulem}
+\useunder{\uline}{\ul}{}
+
+
+%% If you are submitting a paper to a conference for review with a double
+%% blind reviewing process, please replace the value ``0'' below with your
+%% OnlineID. Otherwise, you may safely leave it at ``0''.
+\onlineid{0}
+
+%% declare the category of your paper, only shown in review mode
+\vgtccategory{Research}
+
+%% allow for this line if you want the electronic option to work properly
+\vgtcinsertpkg
+
+%% In preprint mode you may define your own headline.
+%\preprinttext{To appear in an IEEE VGTC sponsored conference.}
+
+%% Paper title.
+
+\title{Augmented Reality Based Learning}
+
+%% This is how authors are specified in the conference style
+
+%% Author and Affiliation (single author).
+\author{Chris MacKenzie\thanks{e-mail: cmack816@colostate.edu}}
+\affiliation{\scriptsize CS464}
+
+%% Author and Affiliation (multiple authors with single affiliations).
+%%\author{Roy G. Biv\thanks{e-mail: roy.g.biv@aol.com} %
+%%\and Ed Grimley\thanks{e-mail:ed.grimley@aol.com} %
+%%\and Martha Stewart\thanks{e-mail:martha.stewart@marthastewart.com}}
+%%\affiliation{\scriptsize Martha Stewart Enterprises \\ Microsoft Research}
+
+%% Author and Affiliation (multiple authors with multiple affiliations)
+%%\author{Chris MacKenzie\thanks{e-mail: cmack816@colostate.edu}\\ %
+%%        \scriptsize CS464 %
+
+
+%% A teaser figure can be included as follows, but is not recommended since
+%% the space is now taken up by a full width abstract.
+%\teaser{
+%  \includegraphics[width=1.5in]{sample.eps}
+%  \caption{Lookit! Lookit!}
+%}
+
+%% Abstract section.
+\abstract{Education is the cornerstone upon which civilized societies are built. For thousands of years, education has been improving using various technologies. From word-of-mouth and stone tablets to books and computers, people are always trying to find innovative new ways to pass on information to the next generation using the technology of their time. Well, technology has progressed by leaps and bounds over the last half century, and people are just now catching up antiquated educative practices to better mesh with existing technologies. In 2022, online learning and online school are already commonplace, but is this the end-all of technology in the classroom? This project is aimed to discover what new possibilities are out there with the cutting-edge world of Augmented Reality (AR) and especially how it relates to education and teaching people more effectively.  %
+} % end of abstract
+
+%% ACM Computing Classification System (CCS). 
+%% See <http://www.acm.org/class/1998/> for details.
+%% The ``\CCScat'' command takes four arguments.
+
+
+%% Copyright space is enabled by default as required by guidelines.
+%% It is disabled by the 'review' option or via the following command:
+% \nocopyrightspace
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%% START OF THE PAPER %%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%% The ``\maketitle'' command must be the first command after the
+%% ``\begin{document}'' command. It prepares and prints the title block.
+
+%% the only exception to this rule is the \firstsection command
+\firstsection{Introduction}
+
+\maketitle
+
+%% \section{Introduction} %for journal use above \firstsection{..} instead
+    
+\indent The technology to achieve AR even for the modest consumer has been around for over a decade by now. However, very little progress has been made as far as a mainstream adoption of AR technology in the classroom is concerned. AR technology has tremendous potential for “rapid information transfer” [10] which is essentially the textbook definition of education. AR technology may also be considered more exciting by students than a typical textbook reading and so it has the possibility to boost students’ interest and interactions in a classroom. [7] Not only this, but assignments and exercises can be made that were previously unthinkable. Think of a geography assignment that is trying to teach you about the Great Pyramids of Giza. A textbook may have a few pictures and many paragraphs of text about these pyramids, their cultural significance, and their colossal size. But an augmented reality assignment could theoretically allow a user to place the Great Pyramids right in their own backyard, possibly allowing a student to internalize the sheer size of these pyramids better than if they were to thumb through a textbook. In this way, students can compare what they are already familiar with in their everyday environments to a famous landmark such as the Great Pyramids of Giza. This ability to have a reference point to things already existent in the environment is a major selling point of AR, and one reason that AR was chosen over VR for this project. 
+\vspace*{4mm}
+
+This project will aim to allow students to place 3D objects using AR to assist with education. This project will contribute a free, open-source way for teachers to increase interactivity in their lesson plans. It is the hope of this project that increasing the interactivity of lesson plans through the use of AR will cause an increased amount of interest and knowledge retention in students. 
+
+
+
+
+\section{Related Work}
+
+There has already been many applications and experiments concerning AR in an educative environment.  As discussed by Kesim and Ozarslan, there are many different technologies in which AR or VR can be delivered. Head-mounted displays, handheld displays, and pinch gloves are all common ways of interacting with these technologies [4]. This paper discusses the possibility of "textbooks [becoming] dynamic sources of information." [4] With the technology available, "any existing book [can be] developed into an augmented reality edition." [4] This idea to take a traditional form of information dissemination and add on to it is using AR technology is what this project is based on. 
+\vspace*{4mm}
+
+	A study performed in 2008 by Freitas & Campos showed that AR in children's education suggested that it "is effective in maintaining high levels of motivation among children and has a positive impact on the students' learning experience, especially among the weaker students." [7] This study followed 54 students between 7 and 8 years of age, and broke them into 2 groups, one who would be given a traditional lesson and one who would be given a lesson with the help of the AR technology. This study found that students' motivation was extremely high when using the AR technology, and students who were in the group that used the AR technology had a larger increase in test scores before versus after the experiment. [7] This type of experiment is very similar to what I will be performing to determine if my application helps to increase knowledge retention and motivation.
+\vspace*{4mm}
+
+	AR in education has already been applied to a wide range of topics. Topics including astronomy, chemistry, biology, mathematics, and physics have already had applications developed that incorporate AR learning into a traditional educative environment. [3] It was found that in most of these cases, AR learning provided an increase in interest into a topic by would-be learners. It is thought by Kangdon Lee that AR in education has a vast potential to engage students moreso than other traditional ways of teaching. 
+\vspace*{4mm}
+
+	In an experiment done by Liu and Chu in Taiwan on English-learning students, it was found that an AR game app called HELLO engaged students moreso than the traditional way of teaching English at the school. [8] There were 2 groups of students, one who would be learning English the traditional way taught at the school, and one group that would be learning English with the help of an AR app. This app allowed students to use a phone to practice listening and speaking in a way that interacted with their environment. One such interaction with the environment was using the phones in conjunction with HELLO to conduct a treasure hunt game. The map on their phone would update in real time as the students walked around to find a 2D barcode to scan which would prompt the next bit of instruction based on what was scanned. The user would take a picture of the 2D barcode and then practice English that was related to the object that was scanned. In this way, students were able to contextualize English words into their already familiar environments, which Liu and Chu argue may increase knowledge retention. After the English practice that occurred due to the barcode, the students received a virtual gold coin. Any student who managed to get all virtual gold coins were eligible to receive a special real-life prize. 
+\vspace*{4mm}
+
+	The next interaction in this same experiment done by Liu and Chu was using phones in conjunction with HELLO to conduct a relay race. [8] The students were grouped up into groups of 5, and each member picked a zone on the map to write a compelling story about in English. After one member was finished, they were to pass the "baton" (phone) to the next group member and have them write a story about their zone. Upon completion, a survey and in-depth interviews were conducted to understand the students' experiences. The researchers used both qualitative and quantitative data to examine the impact of AR in conjunction with education. Quantitative data included tests before and after the experiment involving the HELLO app was conducted. [8] Qualitative data included surveys, interviews, and instructors' comments about the activities. [8] The results found were that the experimental group outperformed the control group by 8 percentage points, a statistically significant amount. [8]
+\vspace*{4mm}
+
+	These experiments with the HELLO AR app used by Liu and Chu were very inspirational as far as this project goes. The usage of a phone and a fun AR game to motivate young students in education is exactly what this project is all about. This experiment occurred over 10 years ago when phones and smartphones were far less ubiquitous than they are in today's world. So, the students had to share phones that were loaded with the special technology that allowed the AR app to run, and there was only one phone per group of students instead of one phone per student. An experiment today could utilize the students' own personal phones and allow the teacher to engage the students in this AR education app without excessive cost to the school or the student. In addition, since each student will have their own phone, they will likely have more time using the AR app than if they had to share phones as a group.
+\vspace*{4mm}
+
+	The qualitative analysis done by Liu and Chu will be quite similar to the qualitative analysis done in this experiment. Their qualitative data collection involved a survey of the students, and found that there was a significant difference in students' interest in the learning activities provided by the HELLO app, as compared to a textbook. [8] The survey performed by Liu and Chu serves as a form of inspiration for the survey that will be performed to see if the app in development better facilitates learning than more traditional forms of teaching. 
+\vspace*{4mm}
+
+	A review done by Quintero, Baldris, Rubira, Cerón, and Velez analyzed 50 studies that occurred from 2008 to 2018 that involved AR for inclusive education. It was found that "the most representative advantages reported were the motivation, interaction, and generating interest on the part of the student." [6] These studies focused on underprivileged, underperforming, or mentally challenged students that were studied using AR technology in an educative environment to determine if there are any advantages of AR technology in the classroom. The results found were that the most significant changes in students were their motivation and interest in the lesson generally increased in lessons that involved AR technology as compared to lessons that did not involve AR technology. [6] This review helped to shape the questions that will be given to the experimental group in the survey and focuses less on the knowledge gained from the lesson and more on the engagement by students during the lesson. As noted by Quintero et. al, engagement and motivation are two key predictors that help to determine if a particular student will score well or poorly in a class. [6]
+\vspace*{4mm}
+
+	A study completed by Khan, Johnston, and Ophoff that observed 78 participants using an AR mobile app in an educational environment concluded that "attention, satisfaction, and confidence factors of motivation were increased, and these results were found to be significant." [2] This is in line with expectations based on other studies that concluded similar results. To come to this conclusion, a preusage and postusage test on attention, relevance, confidence, and satisfaction was issued to the 78 participants. It was found that attention, confidence, and satisfaction all increased by a statistically significant amount at a significance level of p < .05 and relevance was not significantly different. [2] The preusage and postusage questionnaire were 36 questions and were questions that had a high reliability estimate based on their Cronbach α score. [2] These questions were borrowed from in order to have a reference point to create questions for the survey that will be administered during this experiment. In addition, the method of using the central limit theorem in order to assess statistical significance is one that will be used in this paper.
+\vspace*{4mm}
+
+
+	A study completed by Yen, Tsai, and Wu concerning Augmented Reality in higher education and specifically astronomy recruited 104 college students to participate. [9] The students were split into three groups: one experimental AR group, one control 2D simulation group, and one control 3D simulation group. [9] The data to determine their performance was gathered by the students describing their learning task, weekly interviews by the instructors, questionnaire of learning materials to determine attitude about the material, and a post-test about the material learned to assess knowledge retention. [9] 
+\vspace*{4mm}
+
+	A study done by Dhar et al examined the use of AR in teaching medical students. [5] A study showed that medical students who trained in a simulated setting using AR technology were scored higher by their attending doctors than medical students who had only read chapters about the procedure. [5] AR training using HoloHuman, an application that places a virtual cadaver on a real examination table, has proved to help medical students learn at a faster pace. [5]
+
+
+\section{Application Background}
+
+This application was developed using Google ARCore in conjunction with OpenGL 2.0, and Android Studio. All licensing agreements were strictly followed when developing this application. This application can run on any Android 11+ device that supports AR and depth-of-field. The idea of this application is to provide a free application that teachers can possibly use to boost engagement in their lesson plans. This free application can run on any Android phone, and the idea is that a typical student will likely already have a cell phone, so there is no need to purchase expensive equipment. A student can place an AR object in their environment with this application, and walk around and internalize what it looks like, its cultural significance, and hopefully be more engaged than if they had their nose in a textbook. 
+\vspace*{4mm}
+
+The flow of this application goes as follows. The user opens the application on their Android device. The user allows the AR technology to detect surfaces upon which they can place an object. The user places the object, and can walk around and get close and examine the object they placed and how it relates to their surroundings. 
+
+\section{Methodology}
+
+For this project, I will be performing a questionnaire after allowing 2 groups of adults to learn a concept. One group of adults will be learning a concept in a traditional fashion, through watching a lecture. Another group of adults will be learning in a more modern fashion, a lecture in conjunction with the AR application that is being developed. After each group of adults has finished, a questionnaire will be given that tests their understanding of the concept taught. This questionnaire will undergo statistical analysis using chi-square to determine if there is a significant difference in understanding between groups of adults. 
+\vspace*{4mm}
+
+	The specific details of this user evaluation are as follows. Two groups of adults will be gathered to perform an experiment. These adults will not be compensated for their time. These adults will be taught a lesson on the State of Liberty. One group of adults will watch a video on the Statue and be given a worksheet, which is a more traditional form of teaching. Another group of adults will watch a video on the Statue and be given the AR app in development to place The Statue in their environment. These adults will then be qualitatively surveyed to determine whether there is a greater interest or engagement in the AR app instead of the worksheet. The hypothesis of this experiment is that the AR app will provide a higher rate of interest and motivation. The survey questions will be as follows:
+\vspace*{4mm}
+
+Answer the following questions on a scale of 1-5, 1 being lowest and 5 being highest.
+
+1. How engaged were you during this lesson? Explain.
+
+2. How impactful was this lesson? Explain.
+
+3. How much did you learn from this lesson? Explain.
+
+4. How memorable was this lesson? Explain.
+
+5. How unique was this lesson? Explain.
+\vspace*{4mm}
+
+	With these questions, it will be seen if the novel AR experience plays a role in getting people interested in education moreso than a traditional paper-and-pencil worksheet will. Some confounding variables may be that adults are already knowledgeable about The Statue of Liberty and therefore are not as amazed when the see the immense size compared to objects in their world they are more familiar with. However, it is not feasible to perform this experiment on elementary school students (the app's target audience) as I would need much more time and parents' permission. 
+\vspace*{4mm}
+
+	The main focus of this survey is to see if motivation and interest in the lesson is significantly different between the AR group and the traditional lesson group. As found by Quintero et al, motivation and interest are the key predicting attributes in determining if a student will perform well. [6]
+
+
+% Please add the following required packages to your document preamble:
+% \usepackage[normalem]{ulem}
+% \useunder{\uline}{\ul}{}
+\section{Results and Data}
+Table ~\ref{table:surveyResults} shows the full survey scores from each of the 12 adults who participated in the experiment. 6 adults were assigned to the traditional lesson (Trad1-Trad6) and 6 adults were assigned to the AR lesson (AR1-AR6). 
+\begin{table}[!h]
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{l|l|l|l|l|l}
+      & Engaged & Impactful & Learn & Memorable & Unique \\ \hline
+Trad1 & 4       & 3         & 1     & 2         & 2      \\
+Trad2 & 3       & 3         & 2     & 4         & 1      \\
+Trad3 & 2       & 3         & 1     & 3         & 3      \\
+Trad4 & 2       & 1         & 2     & 3         & 3      \\
+Trad5 & 3       & 5         & 2     & 4         & 2      \\
+Trad6 & 5       & 5         & 3     & 2         & 2      \\
+AR1   & 5       & 5         & 2     & 5         & 5      \\
+AR2   & 5       & 4         & 2     & 4         & 5      \\
+AR3   & 2       & 3         & 3     & 4         & 4      \\
+AR4   & 3       & 2         & 2     & 5         & 3      \\
+AR5   & 5       & 3         & 4     & 3         & 5      \\
+AR6   & 4       & 5         & 4     & 5         & 5     
+\end{tabular}
+\vspace*{10mm}
+\caption{The results of the survey performed on 12 adults, each question rated on a scale of 1-5 as described by the methodology section.}
+\label{table:surveyResults}
+\end{table}
+
+
+% Please add the following required packages to your document preamble:
+% \usepackage[normalem]{ulem}
+% \useunder{\uline}{\ul}{}
+% Please add the following required packages to your document preamble:
+% \usepackage[normalem]{ulem}
+% \useunder{\uline}{\ul}{}
+\begin{table}[!h]
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{l|l|l|l}
+          & Traditional & AR   & Percent difference \\ \hline
+Engaged   & 3.17        & 4.00 & +26.32\%          \\
+Impactful & 3.33        & 3.67 & +10.00\%          \\
+Learn     & 1.83        & 2.83 & +54.55\%          \\
+Memorable & 3.00        & 4.33 & +44.44\%          \\
+Unique    & 2.17        & 4.50 & +107.69\%        
+\end{tabular}
+\vspace*{10mm}
+\caption{The averages of the survey of 12 participants, split into 2 groups.}
+\label{table:surveyAverages}
+\end{table}
+
+    
+    \begin{table}[!h]
+    \renewcommand{\arraystretch}{1.5}
+\begin{tabular}{llll} \hline
+\multicolumn{4}{l}{Engaged}                                     \\ \hline
+\multicolumn{2}{l}{Hypotheses}   & \multicolumn{2}{l}{H_{0}: \mu=3.17; H_{1}: \mu>3.17} \\
+\multicolumn{2}{l}{Calculation}  & \multicolumn{2}{l}{$P(x > 3.17) = P(z > \frac{4.00-3.17}{0.67\div\sqrt{12}}) = P(z > 2.327) $} \\
+\multicolumn{2}{l}{\emph{p} value}      &  \multicolumn{2}{l}{\emph{p} value = .01017}          \\
+\multicolumn{2}{l}{Significance} &               \multicolumn{2}{l}{Result is significant at \emph{p} $<$ .05}           \vspace*{4mm}   \\ \hline 
+\multicolumn{4}{l}{Impactful}                                     \\ \hline
+\multicolumn{2}{l}{Hypotheses}   & \multicolumn{2}{l}{H_{0}: \mu=3.33; H_{1}: \mu>3.33} \\
+\multicolumn{2}{l}{Calculation}  & \multicolumn{2}{l}{$P(x > 3.33) = P(z > \frac{3.67-3.33}{0.25\div\sqrt{12}}) = P(z > 0.879) $} \\
+\multicolumn{2}{l}{\emph{p} value}      &  \multicolumn{2}{l}{\emph{p} value = .19215}          \\
+\multicolumn{2}{l}{Significance} &               \multicolumn{2}{l}{Result is not significant at \emph{p} $<$ .05}    \vspace*{4mm} \\ \hline
+\multicolumn{4}{l}{Learn}                                     \\ \hline
+\multicolumn{2}{l}{Hypotheses}   & \multicolumn{2}{l}{H_{0}: \mu=1.83; H_{1}: \mu>1.83} \\
+\multicolumn{2}{l}{Calculation}  & \multicolumn{2}{l}{$P(x > 1.83) = P(z > \frac{2.83-1.83}{1.02\div\sqrt{12}}) = P(z > 3.518) $} \\
+\multicolumn{2}{l}{\emph{p} value}      &  \multicolumn{2}{l}{\emph{p} value = .00022}          \\
+\multicolumn{2}{l}{Significance} &               \multicolumn{2}{l}{Result is significant at \emph{p} $<$ .05}  \vspace*{4mm} \\ \hline
+\multicolumn{4}{l}{Memorable}                                     \\ \hline
+\multicolumn{2}{l}{Hypotheses}   & \multicolumn{2}{l}{H_{0}: \mu=3.00; H_{1}: \mu>3.00} \\
+\multicolumn{2}{l}{Calculation}  & \multicolumn{2}{l}{$P(x > 3.00) = P(z > \frac{4.33-3.00}{1.24\div\sqrt{12}}) = P(z > 4.304) $} \\
+\multicolumn{2}{l}{\emph{p} value}      &  \multicolumn{2}{l}{\emph{p} value $<$ . 00001}          \\
+\multicolumn{2}{l}{Significance} &               \multicolumn{2}{l}{Result is significant at \emph{p} $<$ .05}   \vspace*{4mm}\\ \hline
+\multicolumn{4}{l}{Unique}                                     \\ \hline
+\multicolumn{2}{l}{Hypotheses}   & \multicolumn{2}{l}{H_{0}: \mu=2.17; H_{1}: \mu>2.17} \\
+\multicolumn{2}{l}{Calculation}  & \multicolumn{2}{l}{$P(x > 2.17) = P(z > \frac{4.50-2.17}{1.63\div\sqrt{12}}) = P(z > 5.631) $} \\
+\multicolumn{2}{l}{\emph{p} value}      &  \multicolumn{2}{l}{\emph{p} value $<$ . 00001}          \\
+\multicolumn{2}{l}{Significance} &               \multicolumn{2}{l}{Result is significant at \emph{p} $<$ .05}   \vspace*{4mm}\\ 
+\end{tabular}
+\label{table:statAnalysis}
+\caption{The results of statistical analysis using the central limit theorem to determine significance or lack thereof in differences of responses between the two experimental groups.}
+\end{table}
+
+
+As can be seen from the tables above, the AR survey scores outperformed the traditional survey scores in every single category. Table ~\ref{table:surveyAverages} shows the traditional averages, the AR averages, and the percent difference between the two for all 5 questions administered. However, to determine if the percent increase between the traditional lesson and the AR lesson is statistically significant, further analysis is required. 
+    \vspace*{4mm}
+    
+    Significance is the indication that the difference in means is greater than a value that would be expected by random chance. For each factor of engagement, impact, learning, memorability, and uniqueness, a central limit theorem test will be applied using a null hypothesis of the traditional lesson score being equal to the AR lesson score. The alternative hypothesis for each of these analyses will be that the AR lesson score is greater than the traditional lesson score. These hypotheses will be evaluated at a significance level of \emph{p} $<$ .05 to determine if the observed differences in the AR group and the traditional group are statistically significant. [11]
+    \vspace*{4mm}
+
+As can be seen from Table 3, statistical significance was found for four of five questions asked. The central limit theorem produces a z-score; this z-score is used in conjunction with the z-score table [11] to produce a \emph{p} value which can be evaluated for significance. 
+\vspace*{4mm}
+
+The increase in mean values for the engagedness, learning, memorability, and uniqueness were all found to be significant at the \emph{p} $<$ .05 level. This indicates that these increases were unlikely to be due to random chance, and instead have a true correlation between a higher score and the AR lesson. For impactfulness, the null hypothesis was not able to be rejected. However, this does not necessarily mean that the null hypothesis holds true for this factor, but instead that the increase was not significant enough to be not due to random chance. 
+\vspace*{4mm}
+
+The statistical analysis shows that for a population of adults, this application provides higher engagement, impactfulness, memorability, and uniqueness than a traditional lesson plan involving a simple video. These qualities are correlated with a higher rate of learning retention [6] and therefore it can be said that this application will likely increase learning if used in the proper manner. 
+\vspace*{4mm}
+
+
+\section{Conclusion}
+
+All in all, this project aims to serve students that are not engaged by traditional methods of teaching and show them that learning can be fun. The introduction of AR into educative environments provides a great potential for furthering lesson plans into the future. This application is easy to use and free for all. Any teacher that would like to incorporate this application into a lesson is free to do so, and can rest assured that there will not be any expensive equipment that needs to be purchased. 
+\vspace*{4mm}
+
+The statistical analysis on the experiment conducted showed that the application has great potential for boosting learning in class. Further experimentation with a younger target audience would be a good idea to determine if these results can be generalized to a younger audience as well as adults. 
+\vspace*{4mm}
+
+
+%% if specified like this the section will be committed in review mode
+
+
+%\bibliographystyle{abbrv}
+\bibliographystyle{abbrv-doi}
+%\bibliographystyle{abbrv-doi-narrow}
+%\bibliographystyle{abbrv-doi-hyperref}
+%\bibliographystyle{abbrv-doi-hyperref-narrow}
+
+\bibliography{template}
+
+[1] Chen P., Liu X., Cheng W., Huang R. (2017) A review of using Augmented Reality in Education from 2011 to 2016. In: Popescu E. et al. (eds) Innovations in Smart Learning. Lecture Notes in Educational Technology. Springer, Singapore. https://doi.org/10.1007/978-981-10-2419-1\_2
+\vspace*{4mm}
+
+[2] Khan, Tasneem, et al. “The Impact of an Augmented Reality Application on Learning Motivation of Students.” Advances in Human-Computer Interaction, Hindawi, 3 Feb. 2019, https://www.hindawi.com/journals/ahci/2019/7208494/.
+\vspace*{4mm}
+
+[3] Lee, K. Augmented Reality in Education and Training. TECHTRENDS TECH TRENDS 56, 13–21 (2012). https://doi.org/10.1007/s11528-012-0559-3
+\vspace*{4mm}
+
+[4] Mehmet Kesim, Yasin Ozarslan, Augmented Reality in Education: Current Technologies and the Potential for Education, Procedia - Social and Behavioral Sciences, Volume 47, 2012, Pages 297-302, ISSN 1877-0428, https://doi.org/10.1016/j.sbspro.2012.06.654.
+\vspace*{4mm}
+
+[5] Poshmaal Dhar, Tetyana Rocks, Rasika M Samarasinghe, Garth Stephenson & Craig Smith (2021) Augmented reality in medical education: students’ experiences and learning outcomes, Medical Education Online, 26:1, 1953953, DOI: 10.1080/10872981.2021.1953953
+\vspace*{4mm}
+
+[6] Quintero, Jairo, et al. “Augmented Reality in Educational Inclusion. A Systematic Review on the Last Decade.” Frontiers, Frontiers, 1 Jan. 1AD, https://www.frontiersin.org/articles/10.3389/fpsyg.2019.01835/full.
+\vspace*{4mm}
+
+[7] Rubina Freitas and Pedro Campos. 2008. SMART: a SysteM of Augmented Reality for Teaching 2nd grade students. In Proceedings of the 22nd British HCI Group Annual Conference on People and Computers: Culture, Creativity, Interaction - Volume 2 (BCS-HCI '08). BCS Learning & Development Ltd., Swindon, GBR, 27–30.
+\vspace*{4mm}
+
+[8] Tsung-Yu Liu, Yu-Ling Chu, Using ubiquitous games in an English listening and speaking course: Impact on learning outcomes and motivation, Computers & Education, Volume 55, Issue 2, 2010, Pages 630-643, ISSN 0360-1315, https://doi.org/10.1016/j.compedu.2010.02.023.
+\vspace*{4mm}
+
+[9] Yen, Jung-Chuan, et al. “Augmented Reality in the Higher Education: Students' Science Concept Learning and Academic Achievement in Astronomy.” Procedia - Social and Behavioral Sciences, Elsevier, 14 Dec. 2013, https://www.sciencedirect.com/science/article/pii/S1877042813037671?via%3Dihub.
+\vspace*{4mm}
+
+[10] Yuen, Steve Chi-Yin; Yaoyuneyong, Gallayanee; and Johnson, Erik (2011) "Augmented Reality: An Overview and Five Directions for AR in Education," Journal of Educational Technology Development and Exchange (JETDE): Vol. 4 : Iss. 1 , Article 11.
+DOI: 10.18785/jetde.0401.10
+\vspace*{4mm}
+
+[11] L. Sullivan, Hypothesis Testing for Means and Proportions, Boston University School of Public Health, Massachusetts, Mass, USA, 2013
+
+\end{document}

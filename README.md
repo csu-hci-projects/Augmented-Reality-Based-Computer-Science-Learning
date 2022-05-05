@@ -23,14 +23,12 @@ To run this project, download Android studio and an Android emulator if you do n
 PDF report for checkpoint 3 can be found [here](./reports/Checkpoint-3.pdf)
 
 
-
-
 ### Final Submission
 
 PDF report for final submission can be found [here](./final-report/Final-Report.pdf)
 
 Video for final project demo can be found [here](https://www.youtube.com/watch?v=YiB3K7G_7NI)
 
-Video for final project presentation can be found [here]()
+Video for final project presentation can be found [here](https://www.youtube.com/watch?v=W6D_ZcYfao0)
 
-Website for final project can be found [here]()
+Website for final project can be found [here](https://c-swizzle.github.io/CS464FinalWebsite/)
