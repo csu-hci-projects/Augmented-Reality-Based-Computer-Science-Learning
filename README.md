@@ -33,4 +33,4 @@ Video for final project presentation can be found [here](https://www.youtube.com
 
 Website for final project can be found [here](https://c-swizzle.github.io/CS464FinalWebsite/)
 
-Source code for final project can be found [here](./Source Code/hello_ar_java/)
+Source code for final project can be found [here](./Source%20Code/hello_ar_java/)
